@@ -1,0 +1,18 @@
+import qrcode
+
+# URL của trang web
+url = "https://username.github.io/repository-name"  # thay bằng URL thực của bạn
+
+# Tạo mã QR
+qr = qrcode.QRCode(
+    version=1,
+    error_correction=qrcode.constants.ERROR_CORRECT_L,
+    box_size=10,
+    border=4,
+)
+qr.add_data(url)
+qr.make(fit=True)
+
+# Tạo và lưu hình ảnh mã QR
+img = qr.make_image(fill='black', back_color='white')
+img.save("/mnt/data/website_qr_code.png")
